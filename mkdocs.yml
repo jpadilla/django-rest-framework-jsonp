@@ -1,0 +1,4 @@
+site_name: djangorestframework-jsonp
+site_description: JSONP support for Django REST Framework
+repo_url: https://github.com/jpadilla/django-rest-framework-jsonp
+site_dir: html
