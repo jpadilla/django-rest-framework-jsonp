@@ -133,6 +133,10 @@
 <hr />
 <h2 id="overview">Overview</h2>
 <p>JSONP support extracted as a third party package directly from the official Django REST Framework implementation.</p>
+<hr />
+<p><strong>Warning</strong>: If you require cross-domain AJAX requests, you should almost certainly be using the more modern approach of <a href="http://www.w3.org/TR/cors/">CORS</a> as an alternative to <code>JSONP</code>. See the <a href="http://www.django-rest-framework.org/topics/ajax-csrf-cors/">CORS documentation</a> for more details.</p>
+<p>The <code>jsonp</code> approach is essentially a browser hack, and is <a href="http://stackoverflow.com/questions/613962/is-jsonp-safe-to-use">only appropriate for globally  readable API endpoints</a>, where <code>GET</code> requests are unauthenticated and do not require any user permissions.</p>
+<hr />
 <h2 id="requirements">Requirements</h2>
 <ul>
 <li>Python (2.7, 3.3, 3.4)</li>
