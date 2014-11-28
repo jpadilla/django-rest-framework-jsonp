@@ -3,6 +3,10 @@
 [![build-status-image]][travis]
 [![pypi-version]][pypi]
 
+**JSONP support for Django REST Framework**
+
+Full documentation for the project is available at [http://jpadilla.github.io/django-rest-framework-jsonp][docs].
+
 ## Overview
 
 JSONP support extracted as a third party package directly from the official Django REST Framework implementation.
@@ -52,7 +56,7 @@ class ExampleView(APIView):
 
 ## Documentation & Support
 
-Full documentation for the project is available at http://jpadilla.github.io/django-rest-framework-jsonp/.
+Full documentation for the project is available at [http://jpadilla.github.io/django-rest-framework-jsonp][docs].
 
 You may also want to follow the [author][jpadilla] on Twitter.
 
@@ -61,4 +65,5 @@ You may also want to follow the [author][jpadilla] on Twitter.
 [travis]: http://travis-ci.org/jpadilla/django-rest-framework-jsonp?branch=master
 [pypi-version]: https://pypip.in/version/djangorestframework-jsonp/badge.svg
 [pypi]: https://pypi.python.org/pypi/djangorestframework-jsonp
+[docs]: http://jpadilla.github.io/django-rest-framework-jsonp
 [jpadilla]: https://twitter.com/jpadilla_
