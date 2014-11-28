@@ -19,6 +19,14 @@ JSONP support for Django REST Framework
 
 JSONP support extracted as a third party package directly from the official Django REST Framework implementation.
 
+---
+
+**Warning**: If you require cross-domain AJAX requests, you should almost certainly be using the more modern approach of [CORS][cors] as an alternative to `JSONP`. See the [CORS documentation][cors-docs] for more details.
+
+The `jsonp` approach is essentially a browser hack, and is [only appropriate for globally  readable API endpoints][jsonp-security], where `GET` requests are unauthenticated and do not require any user permissions.
+
+---
+
 ## Requirements
 
 * Python (2.7, 3.3, 3.4)
@@ -101,3 +109,7 @@ To build the documentation:
 ```bash
 $ mkdocs build
 ```
+
+[cors]: http://www.w3.org/TR/cors/
+[cors-docs]: http://www.django-rest-framework.org/topics/ajax-csrf-cors/
+[jsonp-security]: http://stackoverflow.com/questions/613962/is-jsonp-safe-to-use

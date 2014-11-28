@@ -51,21 +51,8 @@ Renders the request data into `JSONP`.  The `JSONP` media type provides a mechan
 
 The javascript callback function must be set by the client including a `callback` URL query parameter.  For example `http://example.com/api/users?callback=jsonpCallback`.  If the callback function is not explicitly set by the client it will default to `'callback'`.
 
----
-
-**Warning**: If you require cross-domain AJAX requests, you should almost certainly be using the more modern approach of [CORS][cors] as an alternative to `JSONP`.  See the [CORS documentation][cors-docs] for more details.
-
-The `jsonp` approach is essentially a browser hack, and is [only appropriate for globally  readable API endpoints][jsonp-security], where `GET` requests are unauthenticated and do not require any user permissions.
-
----
-
 **.media_type**: `application/javascript`
 
 **.format**: `'.jsonp'`
 
 **.charset**: `utf-8`
-
-
-[cors]: http://www.w3.org/TR/cors/
-[cors-docs]: http://www.django-rest-framework.org/topics/ajax-csrf-cors/
-[jsonp-security]: http://stackoverflow.com/questions/613962/is-jsonp-safe-to-use

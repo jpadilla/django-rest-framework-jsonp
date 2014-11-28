@@ -11,6 +11,14 @@ Full documentation for the project is available at [http://jpadilla.github.io/dj
 
 JSONP support extracted as a third party package directly from the official Django REST Framework implementation.
 
+---
+
+**Warning**: If you require cross-domain AJAX requests, you should almost certainly be using the more modern approach of [CORS][cors] as an alternative to `JSONP`. See the [CORS documentation][cors-docs] for more details.
+
+The `jsonp` approach is essentially a browser hack, and is [only appropriate for globally  readable API endpoints][jsonp-security], where `GET` requests are unauthenticated and do not require any user permissions.
+
+---
+
 ## Requirements
 
 * Python (2.7, 3.3, 3.4)
@@ -65,5 +73,8 @@ You may also want to follow the [author][jpadilla] on Twitter.
 [travis]: http://travis-ci.org/jpadilla/django-rest-framework-jsonp?branch=master
 [pypi-version]: https://pypip.in/version/djangorestframework-jsonp/badge.svg
 [pypi]: https://pypi.python.org/pypi/djangorestframework-jsonp
+[cors]: http://www.w3.org/TR/cors/
+[cors-docs]: http://www.django-rest-framework.org/topics/ajax-csrf-cors/
+[jsonp-security]: http://stackoverflow.com/questions/613962/is-jsonp-safe-to-use
 [docs]: http://jpadilla.github.io/django-rest-framework-jsonp
 [jpadilla]: https://twitter.com/jpadilla_
