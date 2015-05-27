@@ -71,7 +71,7 @@ You may also want to follow the [author][jpadilla] on Twitter.
 
 [build-status-image]: https://secure.travis-ci.org/jpadilla/django-rest-framework-jsonp.png?branch=master
 [travis]: http://travis-ci.org/jpadilla/django-rest-framework-jsonp?branch=master
-[pypi-version]: https://pypip.in/version/djangorestframework-jsonp/badge.svg
+[pypi-version]: https://img.shields.io/pypi/v/djangorestframework-jsonp.svg
 [pypi]: https://pypi.python.org/pypi/djangorestframework-jsonp
 [cors]: http://www.w3.org/TR/cors/
 [cors-docs]: http://www.django-rest-framework.org/topics/ajax-csrf-cors/
