@@ -69,7 +69,7 @@ Full documentation for the project is available at [http://jpadilla.github.io/dj
 You may also want to follow the [author][jpadilla] on Twitter.
 
 
-[build-status-image]: https://secure.travis-ci.org/jpadilla/django-rest-framework-jsonp.png?branch=master
+[build-status-image]: https://secure.travis-ci.org/jpadilla/django-rest-framework-jsonp.svg?branch=master
 [travis]: http://travis-ci.org/jpadilla/django-rest-framework-jsonp?branch=master
 [pypi-version]: https://img.shields.io/pypi/v/djangorestframework-jsonp.svg
 [pypi]: https://pypi.python.org/pypi/djangorestframework-jsonp
