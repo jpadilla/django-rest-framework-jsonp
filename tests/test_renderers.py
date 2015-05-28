@@ -82,3 +82,20 @@ class JSONPRendererTests(TestCase):
             resp.content,
             ('%s(%s);' % (callback_func, _flat_repr)).encode('ascii')
         )
+
+    def test_with_invalid_callback(self):
+        """
+        Test JSONP rendering with a potentially dangerous callback function
+        name.
+        """
+        callback_func = 'my.jsonp.callback'
+        resp = self.client.get(
+            '/jsonp/nojsonrenderer?callback=' + callback_func,
+            HTTP_ACCEPT='application/javascript'
+        )
+        self.assertEqual(resp.status_code, status.HTTP_200_OK)
+        self.assertEqual(resp['Content-Type'], 'application/javascript; charset=utf-8')
+        self.assertEqual(
+            resp.content,
+            ('callback(%s);' % _flat_repr).encode('ascii')
+        )

@@ -3,6 +3,8 @@ Provides JSONP rendering support.
 """
 from __future__ import unicode_literals
 
+import re
+
 from rest_framework.renderers import JSONRenderer
 
 
@@ -15,6 +17,8 @@ class JSONPRenderer(JSONRenderer):
     media_type = 'application/javascript'
     format = 'jsonp'
     callback_parameter = 'callback'
+    # alpha numeric characters and underscore only up to 100 characters length.
+    callback_re = re.compile('^[a-zA-Z0-9_]{1,100}$')
     default_callback = 'callback'
     charset = 'utf-8'
 
@@ -24,7 +28,14 @@ class JSONPRenderer(JSONRenderer):
         """
         request = renderer_context.get('request', None)
         params = request and request.QUERY_PARAMS or {}
-        return params.get(self.callback_parameter, self.default_callback)
+        cb_name = params.get(self.callback_parameter)
+
+        if not (cb_name and self.callback_re.match(cb_name)):
+            # If there is no custom callback or custom one does not match
+            # callback_re default to default_callback.
+            cb_name = self.default_callback
+
+        return cb_name
 
     def render(self, data, accepted_media_type=None, renderer_context=None):
         """
