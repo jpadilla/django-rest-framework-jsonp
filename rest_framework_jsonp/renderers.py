@@ -27,7 +27,6 @@ class JSONPRenderer(JSONRenderer):
                   getattr(request, 'QUERY_PARAMS', {}))
         return params.get(self.callback_parameter, self.default_callback)
 
-
     def render(self, data, accepted_media_type=None, renderer_context=None):
         """
         Renders into jsonp, wrapping the json output in a callback function.
