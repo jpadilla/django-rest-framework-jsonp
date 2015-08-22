@@ -30,7 +30,7 @@ The `jsonp` approach is essentially a browser hack, and is [only appropriate for
 ## Requirements
 
 * Python (2.7, 3.3, 3.4)
-* Django (1.6, 1.7)
+* Django (1.6, 1.7, 1.8)
 
 ## Installation
 
