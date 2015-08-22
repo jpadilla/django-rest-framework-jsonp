@@ -5,6 +5,8 @@ from __future__ import unicode_literals
 
 from rest_framework.renderers import JSONRenderer
 
+from .compat import get_query_params
+
 
 class JSONPRenderer(JSONRenderer):
     """
@@ -23,7 +25,7 @@ class JSONPRenderer(JSONRenderer):
         Determine the name of the callback to wrap around the json output.
         """
         request = renderer_context.get('request', None)
-        params = request and request.QUERY_PARAMS or {}
+        params = request and get_query_params(request) or {}
         return params.get(self.callback_parameter, self.default_callback)
 
     def render(self, data, accepted_media_type=None, renderer_context=None):
