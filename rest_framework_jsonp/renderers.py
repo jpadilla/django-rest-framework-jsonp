@@ -14,7 +14,7 @@ class JSONPRenderer(JSONRenderer):
     wrapping the json output in a callback function.
     """
 
-    media_type = 'application/javascript'
+    js_media_type = 'application/javascript'
     format = 'jsonp'
     callback_parameter = 'callback'
     default_callback = 'callback'
@@ -24,9 +24,10 @@ class JSONPRenderer(JSONRenderer):
         """
         Determine the name of the callback to wrap around the json output.
         """
-        request = renderer_context.get('request', None)
+        request = renderer_context.get('request')
         params = request and get_query_params(request) or {}
-        return params.get(self.callback_parameter, self.default_callback)
+        return (params[self.callback_parameter] or self.default_callback
+                if self.callback_parameter in params else None)
 
     def render(self, data, accepted_media_type=None, renderer_context=None):
         """
@@ -39,4 +40,6 @@ class JSONPRenderer(JSONRenderer):
         callback = self.get_callback(renderer_context)
         json = super(JSONPRenderer, self).render(data, accepted_media_type,
                                                  renderer_context)
-        return callback.encode(self.charset) + b'(' + json + b');'
+        if accepted_media_type == self.js_media_type or callback is not None:
+            json = callback.encode(self.charset) + b'(' + json + b');'
+        return json
